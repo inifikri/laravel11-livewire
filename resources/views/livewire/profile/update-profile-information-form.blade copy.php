@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
 use Livewire\Volt\Component;
 
-new class extends Component {
+new class extends Component
+{
     public string $name = '';
     public string $email = '';
 
@@ -61,21 +62,30 @@ new class extends Component {
     }
 }; ?>
 
-<form wire:submit="updateProfileInformation" class="mt-6 space-y-6">
-    <div class="card-body">
-        <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
-            <div class="col-sm-10">
-                <input wire:model="name" type="text" name="name" class="form-control" id="inputEmail3" value="{{ old('name') }}" placeholder="Name" required autofocus autocomplete="name" >
-            </div>
+<section>
+    {{-- <header>
+        <h2 class="text-lg font-medium text-gray-900">
+            {{ __('Profile Information') }}
+        </h2>
+
+        <p class="mt-1 text-sm text-gray-600">
+            {{ __("Update your account's profile information and email address.") }}
+        </p>
+    </header> --}}
+
+    <form wire:submit="updateProfileInformation" class="mt-6 space-y-6">
+        <div>
+            <x-input-label for="name" :value="__('Name')" />
+            <x-text-input wire:model="name" id="name" name="name" type="text" class="mt-1 block w-full" required autofocus autocomplete="name" />
+            <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
-        <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-10">
-                <input wire:model="email" type="email" name="email" value="{{ old('email') }}" class="form-control" id="inputEmail3" placeholder="Email" required autocomplete="username">
-            </div>
-        </div>
-        @if (auth()->user() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! auth()->user()->hasVerifiedEmail())
+
+        <div>
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input wire:model="email" id="email" name="email" type="email" class="mt-1 block w-full" required autocomplete="username" />
+            <x-input-error class="mt-2" :messages="$errors->get('email')" />
+
+            @if (auth()->user() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! auth()->user()->hasVerifiedEmail())
                 <div>
                     <p class="text-sm mt-2 text-gray-800">
                         {{ __('Your email address is unverified.') }}
@@ -92,9 +102,14 @@ new class extends Component {
                     @endif
                 </div>
             @endif
-        <button type="submit" class="btn btn-primary float-right">Submit</button>
-    </div>
-    {{-- <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div> --}}
-</form>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <x-primary-button>{{ __('Save') }}</x-primary-button>
+
+            <x-action-message class="me-3" on="profile-updated">
+                {{ __('Saved.') }}
+            </x-action-message>
+        </div>
+    </form>
+</section>

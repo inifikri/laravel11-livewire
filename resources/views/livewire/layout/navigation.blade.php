@@ -19,9 +19,9 @@ new class extends Component {
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
         <a href="../../index3.html" class="navbar-brand">
-            <img src="../../build/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            <img src="../../build/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle"
                 style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
+            <span class="brand-text font-weight-light">Laravel 11 </span>
         </a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -33,7 +33,7 @@ new class extends Component {
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="{{ route('dashboard') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">About</a>
@@ -54,7 +54,8 @@ new class extends Component {
             <!-- Notifications Dropdown Menu -->
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="fas fa-user"></i>
+                    <img src="../../build/img/user3-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle"
+                style="opacity: .8">
                 </a>
                 <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu dropdown-menu-right border-0">
                     <li><a href="{{ route('profile') }}" class="dropdown-item">Profile</a></li>
