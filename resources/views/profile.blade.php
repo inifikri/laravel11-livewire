@@ -1,5 +1,7 @@
 <x-app-layout>
     <!-- Content Header (Page header) -->
+    <!-- Menampilkan pesan sukses -->
+
     <div class="content-header">
         <div class="container">
             <div class="row mb-2">
@@ -20,6 +22,11 @@
     <!-- Main content -->
     <div class="content">
         <div class="container">
+            @if (session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="row">
                 <div class="col-lg-3">
                     <!-- Profile Image -->

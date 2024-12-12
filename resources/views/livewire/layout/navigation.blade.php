@@ -36,7 +36,7 @@ new class extends Component {
                     <a href="{{ route('dashboard') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">About</a>
+                    <a href="{{ route('post.index') }}" class="nav-link">Post</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"

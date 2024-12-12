@@ -36,7 +36,7 @@ new class extends Component {
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;
         }
-
+        Session::flash('success', 'Data berhasil di update');
         $user->save();
 
         $this->dispatch('profile-updated', name: $user->name);
