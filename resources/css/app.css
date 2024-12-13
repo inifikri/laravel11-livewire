@@ -1,3 +1,8 @@
 @import 'adminlte.min.css';
+/* DATATABLES */
+@import 'datatables/datatables-bs4/css/dataTables.bootstrap4.min.css';
+@import 'datatables/datatables-responsive/css/responsive.bootstrap4.min.css';
+@import 'datatables/datatables-buttons/css/buttons.bootstrap4.min.css';
+/* END DATATABLES */
 @import 'fontawesome-free/css/all.min.css';
 @import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback';
